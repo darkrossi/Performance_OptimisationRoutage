@@ -19,6 +19,7 @@ Pour mu2 = lambda = 1 et mu1 = 2 on trouve p<sup>\*</sup> = 0.82 environ. Le fai
 #### 1.
 
 #### 2.
+Il faut que &lambda;\*n<&mu;<sub>1</sub> et &lambda;<&mu;<sub>2</sub>
 
 #### 3.
 
