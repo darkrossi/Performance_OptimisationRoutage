@@ -29,7 +29,7 @@ Ainsi, on a prouvé que Y suit une loi de poisson de paramètre $\lambda \cdot p
 D'après la définition notée au début de la question, nous pouvons alors affirmé que les paquets qui arrivent dans la file 1 forment un Processus de Poisson de taux $\lambda \cdot p$.
 
 ## 2.
-Il faut que $\lambda \cdot p<\mu_1$ et $\lambda \cdot (1-p)<\mu_2$.
+Il faut que $\lambda \cdot p<\mu_1$ et $\lambda \cdot (1-p)<\mu_2$. On évitera ainsi que les messages s'accumulent dans le système.
 
 ## 3.
 On sait que la quantité moyenne de paquets en régime stationnaire dans le système vaut $\bar N=\frac{\lambda \cdot p}{\mu_1 \times (1-\frac{\lambda \cdot p}{\mu_1})}+\frac{\lambda \cdot (1-p)}{\mu_2 \times (1-\frac{\lambda \cdot (1-p)}{\mu_2})}$.
