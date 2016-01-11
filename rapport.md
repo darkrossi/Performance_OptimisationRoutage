@@ -67,8 +67,11 @@ Essayer de faire une rédaction comme la correction du DM1 (la forme)
 (axe horizontal avec des points $T_i$)
 
 - 1ère définition : $P(T_{i+1}-T_i > t) = \exp{(-\lambda*t)}$
-- 2ème définition : avec le processus de comptage N([a,b]) = nb de points dans [a,b] de $T_i$ pour i entier naturel. On dit que $T_i$ pour i entier natuel est PP($\lambda$) si N a les 2 propriétés :
-  - N[a,b] et N[c,d] sont indépendants si \[a,b]&cap;[c,d] = &empty;
+- 2ème définition : avec le processus de comptage N([a,b]) = nb de points dans [a,b] de $T_i$ pour i entier naturel.  
+
+On dit que $T_i$ pour i entier natuel est PP($\lambda$) si N a les 2 propriétés :
+
+  - N[a,b] et N[c,d] sont indépendants si $[a,b] \cap [c,d] = \emptyset$
   - N[a,b] suit une loi de poisson de taux $\lambda$\*(b-a)
     - Définition : N suit une loi de poisson de taux $\alpha$ alors P(N=i) = $\frac{\alpha^i}{i!} \times \exp{-\alpha}$
 
