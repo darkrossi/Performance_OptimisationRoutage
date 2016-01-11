@@ -92,4 +92,5 @@ Cependant pour d'autres valeurs de $\mu_1$, $\mu_2$ et $\lambda$ ceci n'est pas 
 # Routage optimal
 
 ## 1.
-Les paquets qui sont envoyés en haut et en bas sont indépendants de ce qu’il se passe dans les files. Ainsi, nous pensons que si au moment de router vers la file 1 ou vers la file 2 le routeur voit l'état du système alors on peut prendre une meilleure décision que les précédentes.
+Les paquets qui sont envoyés en haut et en bas sont indépendants de ce qu’il se passe dans les files. Ainsi, nous pensons que si au moment de router vers la file 1 ou vers la file 2 le routeur voit l'état du système alors on peut prendre une meilleure décision que les précédentes.  
+On pourrait par exemple, au moment de router un paquet vers la file 1 ou 2, regarder le temps moyen nécéssaire pour vider chaque file. Le système choisirait alors d'envoyer le paquet dans la file qui se videra le plus rapidement. Concrètement, il faut comparer (NbPaquetsFile1/$\mu_1$) et (NbPaquetsFile2/$\mu_1$) au moment du routage.
