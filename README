@@ -1,0 +1,7 @@
+COMMENT LANCER L'EXECUTABLE Main.java :
+  - Il faut renseigner 4 paramètres : mu1 mu2 lambda nombre_max_paquets_avant_fin_simu
+  - Exemple : java Main 2 1 1 100000
+
+COMMENT LANCER L'EXECUTABLE GraphSimu.java :
+  - Il faut renseigner 5 paramètres : mu1 mu2 lambda periode nombre_max_paquets_avant_fin_simu
+  - Exemple : java Main 2 1 1 2 100000
