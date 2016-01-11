@@ -18,9 +18,6 @@ public class Simulator {
     private Service m_serv1;
     private Service m_serv2;
 
-    private double m_mu1;
-    private double m_mu2;
-
     private Poisson m_poisson;
 
     private double m_lambda;
@@ -37,9 +34,6 @@ public class Simulator {
     private int m_nb_paquets_max;
 
     public Simulator(double mu1, double mu2, double lambda, int n_periode, int nb_paquets_max) {
-        this.m_mu1 = mu1;
-        this.m_mu2 = mu2;
-
         this.m_lambda = lambda;
 
         this.m_n_periode = n_periode;
@@ -50,7 +44,7 @@ public class Simulator {
         this.m_serv1 = new Service(mu1);
         /**
          * On fait attendre un peu le Thread pour pas que les random des
-         * exponentiels des deux Serveurs soient les même
+         * exponentiels des deux Serveurs soient les mêmes
          */
         Random rand = new Random((new Date()).getTime());
         long tem = (long) (rand.nextDouble() * 100);
@@ -73,14 +67,13 @@ public class Simulator {
     }
 
     public LinkedList<Stat> run() {
-        LinkedList<Stat> list_stats = new LinkedList<Stat>();
+        LinkedList<Stat> list_stats = new LinkedList<>();
         while (m_nb_paquets_total < m_nb_paquets_max) {
             double time = m_events.firstKey();
             m_current_time = time;
             Requete current_requete = m_events.remove(time);
             int type_current_requete = current_requete.getM_type();
             if (type_current_requete == Main.ARRIVAL) {
-//                System.out.println("ARRIVEE");
 
                 m_nb_paquets_total++;
                 
@@ -121,7 +114,6 @@ public class Simulator {
                 m_events.put(m_current_time + poisson_time, new Requete(Main.ARRIVAL, 0));
 
             } else if (type_current_requete == Main.DEPART) {
-//                System.out.println("\tDEPART : ");
                 int num_file = current_requete.getM_num_file();
                 Service current_service;
                 FileAtt current_file;
@@ -143,10 +135,7 @@ public class Simulator {
             }
             
             int nb_client_file1 = m_file1.getNbPersonnes();
-            int nb_client_file2 = m_file2.getNbPersonnes();
-            int nb_clients = nb_client_file1 + nb_client_file2;
-//            System.out.println("Il y a encore au total " + nb_clients + " paquets en attente (" + nb_client_file1 + ", " + nb_client_file2 + ")");
-            
+            int nb_client_file2 = m_file2.getNbPersonnes();            
             list_stats.add(new Stat(m_current_time, nb_client_file1, nb_client_file2));
         }
         return list_stats;

@@ -70,10 +70,22 @@ public class GraphSimu extends ApplicationFrame {
 
     public static void main(String[] args) {
 
+        double mu1, mu2, lambda;
+        int periode, nb_paquets_max;
+        if (args.length < 5) {
+            System.out.println("Veuillez renseigner les paramètres -> mu1, mu2, lambda, nb_paquets_max");
+            return;
+        }
+        mu1 = Double.parseDouble(args[0]);
+        mu2 = Double.parseDouble(args[1]);
+        lambda = Double.parseDouble(args[2]);
+        periode = Integer.parseInt(args[3]);
+        nb_paquets_max = Integer.parseInt(args[4]);
+
         /**
          * mu1, mu2, lambda, nb_periode, nb_paquets_max
          */
-        Simulator simulator = new Simulator(2, 1, 1, 2, 100000);
+        Simulator simulator = new Simulator(mu1, mu2, lambda, periode, nb_paquets_max);
         LinkedList<Stat> stats = simulator.run();
 
         GraphSimu chart = new GraphSimu(

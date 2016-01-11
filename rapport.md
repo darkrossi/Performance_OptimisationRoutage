@@ -61,27 +61,26 @@ On aurait donc notamment ($N_t_c$ - $N_t_b$) et ($N_t_b$ - $N_t_a$) qui seraient
 Il faut que $\lambda*n<\mu_1$ et $\lambda<\mu_2$.
 
 ## 3.
+Notre simulateur a deux éxécutables : le premier (Main.java) permet de faire afficher le nombre de paquets moyens en attente pour $\lambda$, $\mu1$ et $\mu2$ donnés à l'aide d'une boucle sur le nombre de paquets envoyé au serveur 1. Dans la classe principale qu'est Simulator on alimente une queue de priorité triée suivant un temps. On considère deux types de requêtes : une requête d'arrivée au routeur et une requête de départ du Service.
 
-!!Expliquer simu!!  
-!!Calculer des intervalles de confiance!!
+Le deuxième (GraphSimu.java) permet de faire afficher le nombre de paquets moyen en attente en fonction du temps pour $\lambda$, $\mu1$, $\mu2$ et n donnés.
 
-Notre simulateur a deux éxécutables : Le premier permet de faire afficher le nombre de paquets moyens en attente pour $\lambda$, $\mu1$ et $\mu2$ donnés à l'aide d'une boucle sur le nombre de paquets envoyé au serveur 1. Dans la classe principale qu'est Simulator on alimente une queue de priorité triée suivant un temps. On considère deux types de requêtes : une requête d'arrivée au routeur et une requête de départ du Service. On retrouve aussi les classes suivantes :
+Dans notre simulateur on retrouve les classes principales suivantes :
 
+  - Simulator : définie par deux files d'attente, deux services, une queue de priorité pour stocker les événements, ainsi que d'autres attributs servant à son bon fonctionnement.
   - Requete : définie par un type (départ ou arrivée) et un numéro de file, elle permet de stocker les événements dans la queue de priorité du Simulator.
   - Service : définie par une instance de Exponentielle (permettant d'implémenter la distribution exponentielle de paramètre $\mu$) et un temps représentant son occupation.
   - Stat : définie par un temps et un nombre de paquets dans la file 1 et dans la file 2, elle permet d'exploiter les résultats à la fin de la simulation.
-  - FileAtt :
+  - FileAtt : définie par le nombre de personnes la composant.
 
-Le deuxième permet de faire afficher le nombre de paquets moyen en attente en fonction du temps pour $\lambda$, $\mu1$, $\mu2$ et n donnés.
+Les intervalles de confiance de la moyenne sont calculés grâce aux méthodes intervalle_de_confiance, calculateAverage, variance et la classe statique Intervalle. La classe Intervalle a deux attributs qui représentent l'intervalle de confiance de la moyenne. Nous avons utilisé la formule suivante : $[moyenne-2\sqrt{\frac{variance}{N}}; moyenne+2\sqrt{\frac{variance}{N}}]$.
 
 ## 4.
 
 1. Cas où $\lambda=\mu1=\mu2=1$  
-  Par simulation on trouve $n^*=1$.  
-  !!Résultat avec intervalle de confiance!!
+  Par simulation on trouve $n^*=1$ avec un nombre de paquets moyen en attente de 0.97 avec un intervalle de confiance [0.96, 0.98].
 2. Cas où $\lambda=\mu2=1$ et $\mu1=2$  
-  Par simulation on trouve $n^*=2$.  
-  !!Résultat avec intervalle de confiance!!
+  Par simulation on trouve $n^*=2$ avec un nombre de paquets moyen en attente de 0.47 avec un intervalle de confiance [0.46, 0.47].
 
 ## 5.
 !!ça dépend!!
@@ -90,36 +89,7 @@ Le deuxième permet de faire afficher le nombre de paquets moyen en attente en f
 
 ## 1.
 !!TO DO!!
-
 pandoc -s -S --toc --toc-depth=1 -V geometry:margin=1in rapport.md -o rapport.pdf
-
-
-# Notes sur DM2
-Essayer de faire une rédaction comme la correction du DM1 (la forme)
-
-## Question 1.1
-**Processus de poisson** :
-(axe horizontal avec des points T<sub>i</sub>)
-- 1ère définition : P(T<sub>i+1</sub>-T<sub>i</sub> > t) = exp(-&lambda;\*t)
-- 2ème définition : avec le processus de comptage N([a,b]) = nb de points dans [a,b] de T<sub>i</sub> pour i entier naturel. On dit que T<sub>i</sub> pour i entier natuel est PP(&lambda;) si N a les 2 propriétés :
-  - N[a,b] et N[c,d] sont indépendants si \[a,b]&cap;[c,d] = &empty;
-  - N[a,b] suit une loi de poisson de taux &lambda;\*(b-a)
-    - Définition : N suit une loi de poisson de taux &alpha; alors P(N=i) = (&alpha;<sup>i</sup>/i!)\*exp(-&alpha;)
-
-### PP(&alpha;)  
-Je tire au hasard avec proba p pour colorier en rouge (les autres sont en verts)  
-Je choisis [0,a]  
-P(N1[0,a]=i<sub>1</sub>, N2[0,a]=i<sub>2</sub>) = P(N1=i<sub>1</sub>, N2 = i<sub>2</sub> | N = i<sub>1</sub> + i<sub>2</sub>)\*P(N=i<sub>1</sub>+i<sub>2</sub>)
-
-Le premier terme vaut : p<sup>i<sub>1</sub></sup>\*(1-p)<sup>i</sup><sub>2</sub> * (i<sub>1</sub>+i<sub>2</sub>)!/(i<sub>1</sub>!\*i<sub>2</sub>!)  
-Le deuxième terme vaut (&alpha;\*a)^(i<sub>1</sub>+i<sub>2</sub>)/(i<sub>1</sub>!+i<sub>2</sub>!)\*exp(-&alpha;\*a)
-
-On a au final = (p<sup>i<sub>1</sub></sup>\*(&alpha;\*a)<sup>i<sub>1</sub></sup>/i<sub>1</sub>!\*exp(-&alpha;\*p*a))\*((1-p)<sup>i<sub>2</sub></sup>\*(&alpha;\*a)<sup>i<sub>2</sub></sup>\*/i<sub>2</sub>!\*exp(&alpha;\*(1-p)\*a))  
-Et le premier terme de ce résultat est un PP(&alpha;\*p) et le deuxième est un PP(&alpha;\*(1-p))  
-
-## Question 1.3
-Il faut donner un sens à chacun des termes du résultat
-
 
 ## Question 2.5
 Ce n'est pas n'importe quel routage périodique. Du coup, pour certains mu et lmabda ça va mal se passer ...
