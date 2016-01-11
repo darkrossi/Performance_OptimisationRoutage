@@ -79,9 +79,9 @@ Je choisis [0,a]
 $P(N1[0,a]=i_1, N2[0,a]=i_2)=P(N1=i_1, N2=i_2 | N=i_1+i_2) \times P(N=i_1+i_2)$
 
 Le premier terme vaut : $p^{i_1} \times (1-p)^{i_2} \times \frac{(i_1+i_2)!}{i_1! \cdot i_2!}$  
-Le deuxième terme vaut $\frac{(\alpha*a)^{i_1+i_2}}{(i_1!+i_2!)*exp(-\alpha*a)}$
+Le deuxième terme vaut $\frac{(\alpha*a)^{i_1+i_2}}{(i_1!+i_2!)*exp(-\alpha \cdot a)}$
 
-On a au final = $(p^{i_1} \times (\alpha*a)^{i_1}/i_1!*\exp{-\alpha*p*a}) \times ((1-p)^{i_2}*(\alpha*a)^{i_2}*/i_2!*\exp{\alpha*(1-p)*a})$  
+On a au final = $(\frac{p^{i_1} \times (\alpha*a)^{i_1}}{i_1!} \times \exp{(-\alpha \cdot p \cdot a)}) \times (\frac{(1-p)^{i_2}*(\alpha*a)^{i_2}}{i_2!} \times \exp{(\alpha \cdot (1-p) \cdot a)})$  
 Et le premier terme de ce résultat est un PP($\alpha*p$) et le deuxième est un PP($\alpha*(1-p)$)  
 
 ## Question 1.3
