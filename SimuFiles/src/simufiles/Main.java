@@ -10,10 +10,6 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.TreeMap;
 
-/**
- *
- * @author Mickaël
- */
 public class Main {
 
     public static final int ARRIVAL = 0;

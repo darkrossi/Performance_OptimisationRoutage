@@ -28,6 +28,7 @@ public class Service {
     /**
      * Test l'occupation du service
      *
+     * @param time
      * @return
      */
     public boolean testAvailable(double time) {
