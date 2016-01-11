@@ -55,6 +55,15 @@ Il faut que $\lambda*n<\mu_1$ et $\lambda<\mu_2$.
 !!Expliquer simu!!  
 !!Calculer des intervalles de confiance!!
 
+Notre simulateur a deux éxécutables :
+
+- Le premier permet de faire afficher le nombre de paquets moyens en attente pour $\lambda$, $\mu1$ et $\mu2$ donnés à l'aide d'une boucle sur le nombre de paquets envoyé au serveur 1. Dans la classe principale qu'est Simulator on alimente une queue de priorité triée suivant un temps. On considère deux types de requêtes : une requête d'arrivée au routeur et une requête de départ du Service. On retrouve aussi les classes suivantes :
+  - Requete : définie par un type (départ ou arrivée) et un numéro de file, elle permet de stocker les événements dans la queue de priorité du Simulator.
+  - Service : définie par une instance de Exponentielle (permettant d'implémenter la distribution exponentielle de paramètre $\mu$) et un temps représentant son occupation.
+  - Stat : définie par un temps et un nombre de paquets dans la file 1 et dans la file 2, elle permet d'exploiter les résultats à la fin de la simulation.
+  - FileAtt : 
+- Le deuxième permet de faire afficher le nombre de paquets moyen en attente en fonction du temps pour $\lambda$, $\mu1$, $\mu2$ et n donnés.
+
 ## 4.
 
 1. Cas où $\lambda=\mu1=\mu2=1$  
