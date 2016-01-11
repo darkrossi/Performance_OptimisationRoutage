@@ -66,22 +66,22 @@ Essayer de faire une rédaction comme la correction du DM1 (la forme)
 **Processus de poisson** :
 (axe horizontal avec des points $T_i$)
 
-- 1ère définition : $P(T_{i+1}-T_i > t) = \exp{-\lambda*t}$
+- 1ère définition : $P(T_{i+1}-T_i > t) = \exp{(-\lambda*t)}$
 - 2ème définition : avec le processus de comptage N([a,b]) = nb de points dans [a,b] de $T_i$ pour i entier naturel. On dit que $T_i$ pour i entier natuel est PP($\lambda$) si N a les 2 propriétés :
   - N[a,b] et N[c,d] sont indépendants si \[a,b]&cap;[c,d] = &empty;
   - N[a,b] suit une loi de poisson de taux $\lambda$\*(b-a)
-    - Définition : N suit une loi de poisson de taux $\alpha$ alors P(N=i) = ($\alpha$<sup>i</sup>/i!)\*exp(-$\alpha$)
+    - Définition : N suit une loi de poisson de taux $\alpha$ alors P(N=i) = $\frac{\alpha^i}{i!} \times \exp{-\alpha}$
 
 ### PP($\alpha$)  
 Je tire au hasard avec proba p pour colorier en rouge (les autres sont en verts)  
 Je choisis [0,a]  
-P(N1[0,a]=i_1, N2[0,a]=i_2) = P(N1=i_1, N2 = i_2 | N = i_1 + i_2)\*P(N=i_1+i_2)
+$P(N1[0,a]=i_1, N2[0,a]=i_2)=P(N1=i_1, N2=i_2 | N=i_1+i_2) \times P(N=i_1+i_2)$
 
-Le premier terme vaut : p<sup>i_1</sup>\*(1-p)<sup>i</sup>2 * (i_1+i_2)!/(i_1!\*i_2!)  
-Le deuxième terme vaut ($\alpha$\*a)^(i_1+i_2)/(i_1!+i_2!)\*exp(-$\alpha$\*a)
+Le premier terme vaut : $p^{i_1} \times (1-p)^{i_2} \times \frac{(i_1+i_2)!}{i_1! \cdot i_2!}$  
+Le deuxième terme vaut $\frac{(\alpha*a)^{i_1+i_2}}{(i_1!+i_2!)*exp(-\alpha*a)}$
 
-On a au final = (p<sup>i_1</sup>\*($\alpha$\*a)<sup>i_1</sup>/i_1!\*exp(-$\alpha$\*p*a))\*((1-p)<sup>i_2</sup>\*($\alpha$\*a)<sup>i_2</sup>\*/i_2!\*exp($\alpha$\*(1-p)\*a))  
-Et le premier terme de ce résultat est un PP($\alpha$\*p) et le deuxième est un PP($\alpha$\*(1-p))  
+On a au final = $(p^{i_1} \times (\alpha*a)^{i_1}/i_1!*\exp{-\alpha*p*a}) \times ((1-p)^{i_2}*(\alpha*a)^{i_2}*/i_2!*\exp{\alpha*(1-p)*a})$  
+Et le premier terme de ce résultat est un PP($\alpha*p$) et le deuxième est un PP($\alpha*(1-p)$)  
 
 ## Question 1.3
 Il faut donner un sens à chacun des termes du résultat
