@@ -47,15 +47,15 @@ Pour $\mu_2=\lambda=1$ et $\mu_1=2$ on trouve $p^*=0.82$ environ. Le fait que le
 ## 1.
 Le routage est ici périodique :
 
-- À partir d'une date t<sub>a</sub> le système envoie n paquets sur un serveur.
-- Puis, à partir d'une date t<sub>b</sub> le système envoie un paquet sur l'autre serveur.
-- À une date t<sub>c</sub> le système recommence à envoyer n paquets sur le premier serveur.
+- À partir d'une date $t_a$ le système envoie n paquets sur un serveur.
+- Puis, à partir d'une date $t_b$ le système envoie un paquet sur l'autre serveur.
+- À une date $t_c$ le système recommence à envoyer n paquets sur le premier serveur.
 
-Pendant l'intervalle t<sub>c</sub> - t<sub>a</sub> le système doit donc envoyer exactement n paquets sur la file 1.    
+Pendant l'intervalle $t_c$ - $t_a$ le système doit donc envoyer exactement n paquets sur la file 1.    
 Si le processus d'arrivée sur la file 1 était de Poisson, on aurait :  
-Pour tout t<sub>0</sub>=0 < t1 < ... < t<sub>k</sub> , (N<sub>t<sub>k</sub></sub> - N<sub>t<sub>k-1</sub></sub>), ..., (N<sub>t<sub>1</sub></sub> - N<sub>t<sub>0</sub></sub>) indépendantes. (En notant (N<sub>t</sub>) le processus de poisson).
+Pour tout $t_0$=0 < $t_1$ < ... < $t_k$ , ($N_t_k$ - $N_t_k-1$, ..., ($N_t_1$ - $N_t_0$) indépendantes. (En notant ($N_t$) le processus de poisson).
 
-On aurait donc notamment (N<sub>t<sub>c</sub></sub> - N<sub>t<sub>b</sub></sub>) et (N<sub>t<sub>b</sub></sub> - N<sub>t<sub>a</sub></sub>) qui seraient indépendants. Or si (N<sub>t<sub>c</sub></sub> - N<sub>t<sub>b</sub></sub>) = n, alors (N<sub>t<sub>b</sub></sub> - N<sub>t<sub>a</sub></sub>) = 0 donc l'indépendance n'est pas vérifiée et le processus de la file 1 n'est pas de Poisson.
+On aurait donc notamment ($N_t_c$ - $N_t_b$) et ($N_t_b$ - $N_t_a$) qui seraient indépendants. Or si ($N_t_c$ - $N_t_b$) = n, alors ($N_t_b$ - $N_t_a$) = 0 donc l'indépendance n'est pas vérifiée et le processus de la file 1 n'est pas de Poisson.
 
 ## 2.
 Il faut que $\lambda*n<\mu_1$ et $\lambda<\mu_2$.
