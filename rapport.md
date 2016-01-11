@@ -53,9 +53,9 @@ Le routage est ici périodique :
 
 Pendant l'intervalle $t_c$ - $t_a$ le système doit donc envoyer exactement n paquets sur la file 1.    
 Si le processus d'arrivée sur la file 1 était de Poisson, on aurait :  
-Pour tout $t_0$=0 < $t_1$ < ... < $t_k$ , ($N_t_k$ - $N_t_k-1$, ..., ($N_t_1$ - $N_t_0$) indépendantes. (En notant ($N_t$) le processus de poisson).
+Pour tout $t_0$=0 < $t_1$ < ... < $t_k$ , ($N_{t_k}$ - $N_{t_{k-1}}$, ..., ($N_{t_1}$ - $N_{t_0}$) indépendantes. (En notant ($N_t$) le processus de poisson).
 
-On aurait donc notamment ($N_t_c$ - $N_t_b$) et ($N_t_b$ - $N_t_a$) qui seraient indépendants. Or si ($N_t_c$ - $N_t_b$) = n, alors ($N_t_b$ - $N_t_a$) = 0 donc l'indépendance n'est pas vérifiée et le processus de la file 1 n'est pas de Poisson.
+On aurait donc notamment ($N_{t_c}$ - $N_{t_b}$) et ($N_{t_b}$ - $N_{t_a}$) qui seraient indépendants. Or si ($N_{t_c}$ - $N_{t_b}$) = n, alors ($N_{t_b}$ - $N_{t_a}$) = 0 donc l'indépendance n'est pas vérifiée et le processus de la file 1 n'est pas de Poisson.
 
 ## 2.
 Il faut que $\lambda*n<\mu_1$ et $\lambda<\mu_2$.
@@ -78,21 +78,18 @@ Les intervalles de confiance de la moyenne sont calculés grâce aux méthodes i
 ## 4.
 
 1. Cas où $\lambda=\mu1=\mu2=1$  
-  Par simulation on trouve $n^*=1$ avec un nombre de paquets moyen en attente de 0.97 avec un intervalle de confiance [0.96, 0.98].
+  Par simulation on trouve $n^*=1$ avec un nombre de paquets moyen en attente de 0.97 avec un intervalle de confiance [0.96, 0.98] (10 simulations).
 2. Cas où $\lambda=\mu2=1$ et $\mu1=2$  
-  Par simulation on trouve $n^*=2$ avec un nombre de paquets moyen en attente de 0.47 avec un intervalle de confiance [0.46, 0.47].
+  Par simulation on trouve $n^*=2$ avec un nombre de paquets moyen en attente de 0.47 avec un intervalle de confiance [0.46, 0.47] (10 simulations).
 
 ## 5.
-!!ça dépend!!
+Pour $\mu_1=1$ alors p = 0.5 : ($\rho_1 = p \cdot \lambda \cdot \mu_1 = 0.5$ et $\rho_2 = (1-p) \cdot \lambda \cdot \mu_2 = 0.5$) donc $\bar N$ = 2.  
+Pour $\mu_1=2$ alors p = 0.82 : ($\rho_1$ = 0.41 et $\rho_2$ = 0.18) donc $\bar N$ = 0.91.  
+
+On voit avec ces résultats que le routage périodique est plus efficace que le routage Bernouilli. En effet, pour les deux cas le nombre de paquets moyen en attente est inférieur pour le premier que pour le second.  
+Cependant pour d'autres valeurs de $\mu_1$, $\mu_2$ et $\lambda$ ceci n'est pas le cas. !!compléter!!
 
 # Routage optimal
 
 ## 1.
-!!TO DO!!
-pandoc -s -S --toc --toc-depth=1 -V geometry:margin=1in rapport.md -o rapport.pdf
-
-## Question 2.5
-Ce n'est pas n'importe quel routage périodique. Du coup, pour certains mu et lmabda ça va mal se passer ...
-
-## Question 3.0  
-Les paquets qui sont envoyés en haut et en bas sont indépendants de ce qu'il se passe dans les files.
+Les paquets qui sont envoyés en haut et en bas sont indépendants de ce qu’il se passe dans les files. Ainsi, nous pensons que si au moment de router vers la file 1 ou vers la file 2 le routeur voit l'état du système alors on peut prendre une meilleure décision que les précédentes.
