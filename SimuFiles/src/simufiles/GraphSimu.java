@@ -10,7 +10,6 @@ import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PlotOrientation;
-import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.data.xy.XYDataset;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
@@ -38,9 +37,9 @@ public class GraphSimu extends ApplicationFrame {
     }
 
     private XYDataset createDataset(LinkedList<Stat> stats, boolean onlyTotal) {
-        final XYSeries series1 = new XYSeries("File 1");
-        final XYSeries series2 = new XYSeries("File 2");
-        final XYSeries series3 = new XYSeries("Total");
+        final XYSeries series1 = new XYSeries("Total");
+        final XYSeries series2 = new XYSeries("File 1");
+        final XYSeries series3 = new XYSeries("File 2");
 
         int periode_max = 20;
         int periode = 0;
@@ -51,10 +50,10 @@ public class GraphSimu extends ApplicationFrame {
                 int nb_paquets1 = stat.getPaquets1();
                 int nb_paquets2 = stat.getPaquets2();
                 int nb_paquets_total = nb_paquets1 + nb_paquets2;
-                series1.add(time, nb_paquets1);
+                series1.add(time, nb_paquets_total);
                 if (!onlyTotal) {
-                    series2.add(time, nb_paquets2);
-                    series3.add(time, nb_paquets_total);
+                    series2.add(time, nb_paquets1);
+                    series3.add(time, nb_paquets2);
                 }
             }
             periode++;
@@ -74,7 +73,7 @@ public class GraphSimu extends ApplicationFrame {
         /**
          * mu1, mu2, lambda, nb_periode, nb_paquets_max
          */
-        Simulator simulator = new Simulator(1, 1, 1, 10, 100000);
+        Simulator simulator = new Simulator(2, 1, 1, 2, 100000);
         LinkedList<Stat> stats = simulator.run();
 
         GraphSimu chart = new GraphSimu(
